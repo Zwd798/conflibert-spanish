@@ -189,7 +189,7 @@ class OutputSplitter():
 
 tagRE = re.compile(r'(.*?)<(/?\w+)[^>]*>(?:([^<]*)(<.*?>)?)?')
 #                    1     2               3      4
-categoryRE = re.compile(r'\[\[Category: ?([a-zA-Z0-9_ ]+).?.?.?]\]')
+categoryRE = re.compile(r'\[\[Categoría: ?([a-zA-Z0-9áéíóúñü¡¿\-\s_]+).?.?.?]\]')
 
 def load_templates(file, output_file=None):
     """
@@ -635,7 +635,7 @@ def main():
                 urlbase = base[:base.rfind("/")]
             else:
                 urlbase = ''
-            category = re.findall(r'\[\[Category: ?([a-zA-Z0-9_ ]+).?.?.?]\]', page)
+            category = re.findall(r'\[\[Categoría: ?([a-zA-Z0-9áéíóúñü¡¿\-\s_]+).?.?.?]\]', page)
 
             Extractor(id, revid, urlbase, title, [page], category).extract(sys.stdout)
         return
